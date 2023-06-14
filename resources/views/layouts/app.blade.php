@@ -235,7 +235,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if ((now.getMonth() + 1) == 6 <> (now.getMonth() + 1) == 7) {
+            if ((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 7) {
             $("#mediumButton1").show();
             $("#mediumButtonHapus").show();
             } else {
