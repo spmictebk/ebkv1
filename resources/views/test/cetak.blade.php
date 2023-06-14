@@ -42,7 +42,8 @@
     </head>
     <body class="antialiased">
         <div class="container">
-            
+            <br>
+            <br>
             <p align=center><img src="{{ asset('/storage/ebk/avatar/' . Auth::user()->avatar) }}" style="width: 97px; height: 100px; border-radius: 50%"></p>
             
             <table style="height: 90px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
