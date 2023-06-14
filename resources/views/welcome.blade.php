@@ -89,7 +89,7 @@ body  {
                     </div>
 
                         <div class="flex items-center">
-                        <p align=center><img src="/storage/ebk/notebook.jpg" alt height="90%" width="90%"></p>
+                        <p align=center><img src="{{ asset('/storage/ebk/notebook.jpg) }}" alt height="90%" width="90%"></p>
                         </div>
     </body>
 </html>
