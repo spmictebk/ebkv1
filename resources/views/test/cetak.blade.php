@@ -42,8 +42,9 @@
     </head>
     <body class="antialiased">
         <div class="container">
-            <br>
-            <br> 
+            
+            <p align=center><img src="{{ asset('/storage/ebk/avatar/' . Auth::user()->avatar) }}" style="width: 90px; height: 100px; border-radius: 50%"></p>
+            
             <table style="height: 90px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
                 <tbody>
                 <tr>
@@ -69,7 +70,7 @@
                 <td style="width: 25%; text-align: center; height: 18px; background-color: lightgrey;"><b>Tempat Bertugas</b></td>
                 <td style="width: 75%; height: 18px; text-align: left;" colspan="3">
                 <div>
-                <div>&nbsp;&nbsp;  {{$test->sektor_id}}</div>
+                <div>&nbsp;&nbsp;  {{$test->unit_id}}{{$test->sektor_id}}</div>
                 </div>
                 </td>
                 </tr>
