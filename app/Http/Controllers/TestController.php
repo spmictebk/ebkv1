@@ -60,6 +60,7 @@ class TestController extends Controller
                 'user_id' => auth()->id(),
                 'sektor_id' => auth()->user()->sektor,
                 'unit_id' => auth()->user()->unit,
+                'avatar_id' => auth()->user()->avatar,
                 'gred' => auth()->user()->gred,
                 'pp' => auth()->user()->name,
                 'ic' => auth()->user()->ic,
