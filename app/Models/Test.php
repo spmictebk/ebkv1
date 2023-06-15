@@ -14,6 +14,7 @@ class Test extends Model
         'user_id',
         'sektor_id',
         'unit_id',
+        'avatar_id',
         'ext1_id',
         'ext2_id',
         'pyd',
