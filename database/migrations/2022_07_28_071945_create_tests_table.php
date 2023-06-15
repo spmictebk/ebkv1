@@ -19,6 +19,7 @@ class CreateTestsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('sektor_id')->nullable();
             $table->string('unit_id')->nullable();
+            $table->string('avatar_id')->nullable();
             $table->integer('ext2_id')->unsigned()->nullable();
             $table->foreign('ext2_id')->references('id')->on('tests')->onDelete('cascade');
             $table->string('ext1_id')->nullable();
