@@ -12,6 +12,7 @@
     <input type="hidden" class="form-control" name="penyemak1" value="{{ Auth::user()->ext1 }}" />
     <input type="hidden" class="form-control" name="penyemak2" value="{{ Auth::user()->ext2 }}" />
     <input type="hidden" class="form-control" name="penyemak3" value="{{ Auth::user()->ext3 }}" />
+    <input type="hidden" class="form-control" name="avatar_id" value="{{ Auth::user()->avatar }}" />
     <table style="border-collapse: collapse; width: 100%;" border="0">
         <tbody>
         <tr>
