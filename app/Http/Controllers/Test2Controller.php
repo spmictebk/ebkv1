@@ -72,6 +72,7 @@ class Test2Controller extends Controller
         $data['ext1_id'] = $request['ext1_id'];
         $data['sektor_id'] = auth()->user()->sektor;
         $data['unit_id'] = auth()->user()->unit;
+        $data['avatar_id'] = auth()->user()->avatar;
         $data['pyd'] = auth()->user()->name;
         $data['ic'] = auth()->user()->ic;
         $data['jawatan'] = auth()->user()->jawatan;
@@ -109,6 +110,7 @@ class Test2Controller extends Controller
         $data['ext1_id'] = $request['ext1_id'];
         $data['sektor_id'] = auth()->user()->sektor;
         $data['unit_id'] = auth()->user()->unit;
+        $data['avatar_id'] = auth()->user()->avatar;
         $data['pyd'] = auth()->user()->name;
         $data['ic'] = auth()->user()->ic;
         $data['jawatan'] = auth()->user()->jawatan;
