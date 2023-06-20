@@ -563,6 +563,12 @@
             })
         });
 
+        // gabung button dan search 
+        function redirectToSearch(icValue) {
+            var searchUrl = "{{ route('search.test3') }}?search=" + icValue;
+            window.location.href = searchUrl;
+        }
+
     </script>
 
     <!-- purata 2 digit -->
