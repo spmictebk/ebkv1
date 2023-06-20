@@ -33,42 +33,43 @@
 
 @forelse ( $tests as $test)
 
-<table  class="table table-bordered table-striped table-dark table-sm">
+<table  class="table table-bordered table-striped table-sm" style="background-color: DarkSlateGrey; color: white;" >
   <thead class="thead-dark">
     <tr>
-      <th scope="col">No.</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Kad Pengenalan</th>
-      <th scope="col">Sektor</th>
-      <th scope="col">Unit</th>
-      <th scope="col">Jawatan</th>
-      <th scope="col">Gred</th>
-      <th scope="col">Tahun</th>
-      <th scope="col">Perincian</th> 
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
+      <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
+      <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+          <img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 70px; height: 75px; border-radius: 50%">
+        </div>
+      </td>
+      <td style="width: 10%;">Nama:</td>
+      <td style="width: 70%;">{{$test->pyd}}</td>
+      </tr>
+      <tr>
+      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="2">{{ ++$i }}</td>
+      <td style="width: 20%;">Kad Pengenalan:</td>
+      <td style="width: 70%;">
+        @if (Auth::user()->hasRole('admin'))
+        {{$test->ic}}
+        @else
+        <input type="text" id="copy_{{ $test->id }}" value="{{$test->ic}}" style="color: black; height: 15px; width: 160px;" readonly>
+          <button value="copy" onclick="copyToClipboard('copy_{{ $test->id }}')" ><i class="fa fa-copy" style="font-size:14px; color:white" ></i></button>
+          &nbsp; &nbsp; &nbsp;<button onclick="redirectToSearch('{{ $test->ic }}')" class="btn btn-sm fa fa-info-circle" style="background-color: LightGoldenRodYellow" > Semakan </button>
+        @endif
+        &nbsp;
+        <!-- combine button & search -->
+        <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true"> Papar </a>
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 5%;  text-align: center;"><b>{{$test->tahun}}</b></td>
+      <td style="width: 20%;  text-align: left;">Tempat Bertugas:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->unit_id}} {{$test->sektor_id}}</td>
+      </tr>
+      
+</thead>
+<tbody>
   <tr>
- 
-  <td>{{ ++$i }} </td>
-  <td>{{$test->pyd}}</td>
-  <td>@if (Auth::user()->hasRole('admin'))
-    {{$test->ic}}
-    @else
-    <input type="text" id="copy_{{ $test->id }}" value="{{$test->ic}}" style="color: black; height: 15px; width: 160px;" readonly>
-       <button value="copy" onclick="copyToClipboard('copy_{{ $test->id }}')"><i class="fa fa-copy" style="font-size:14px;color:silver" ></i></button>
-    @endif</td>
-  <td>{{$test->sektor_id}} </td>
-  <td>{{$test->unit_id}} </td>
-  <td>{{$test->jawatan}} </td>
-  <td>{{$test->gred}} </td>
-  <td>{{$test->tahun}} </td>
-  <td>{{$test->created_at}}  </td>
-  <td>
-    <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true">Papar</a>
-  </td>
-
 
   @if (count($test['children']) > 0  )
         
@@ -85,7 +86,7 @@
 
         
 @endforelse
-  </tbody>
+</tbody>
 
 
 </table> 
