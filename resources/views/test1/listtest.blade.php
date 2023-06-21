@@ -35,7 +35,7 @@
 
 <table  class="table table-bordered table-striped table-sm" style="background-color: DarkSlateGrey; color: white;" >
   <thead class="thead-dark">
-    <tr>
+     <tr>
       <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
       <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
         <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
@@ -46,7 +46,7 @@
       <td style="width: 70%;">{{$test->pyd}}</td>
       </tr>
       <tr>
-      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="2">{{ ++$i }}</td>
+      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="3">{{ ++$i }}</td>
       <td style="width: 20%;">Kad Pengenalan:</td>
       <td style="width: 70%;">
         @if (Auth::user()->hasRole('admin'))
@@ -62,9 +62,13 @@
       </td>
       </tr>
       <tr>
-      <td style="width: 5%;  text-align: center;"><b>{{$test->tahun}}</b></td>
+      <td style="width: 5%;  text-align: center; vertical-align: middle;" rowspan="2"><b>{{$test->tahun}}</b></td>
       <td style="width: 20%;  text-align: left;">Tempat Bertugas:</td>
       <td style="width: 70%;  text-align: left;">{{$test->unit_id}} {{$test->sektor_id}}</td>
+      </tr> 
+      <tr>
+      <td style="width: 20%;  text-align: left;">Jawatan:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->jawatan}} {{$test->gred}}</td>
       </tr>
       
 </thead>
