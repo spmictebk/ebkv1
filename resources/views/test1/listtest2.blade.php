@@ -14,28 +14,26 @@
     @foreach ($test->children as $test)
     <tr>
       <td style="width: 36%;">
-      @if ($test->penyemak1 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" > 
-        <ul>
-        <li><span style="text-decoration: underline;">Bidang Tugas:</span>
-          &nbsp;{{$test->bidang_tugas}}
-        </li>
-        <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
-          &nbsp;{{$test->sasaran}}
-        </li>
-        </ul>  
-        </a>
-      @elseif ($test->penyemak3 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" >
-        <ul>
-        <li><span style="text-decoration: underline;">Bidang Tugas:</span>
-          &nbsp;{{$test->bidang_tugas}}
-        </li>
-        <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
-          &nbsp;{{$test->sasaran}}
-        </li>
-        </ul>  
-        </a>
+      @if ($test->penyemak1 == Auth::user()->name && $test->bidang_tugas != Null)
+            <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;<a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" >
+                  {{$test->bidang_tugas}} </a>
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran}}
+              </li>
+            </ul> 
+      @elseif ($test->penyemak3 == Auth::user()->name && $test->bidang_tugas != Null)
+            <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;<a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" >
+                  {{$test->bidang_tugas}} </a>
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran}}
+              </li>
+            </ul> 
       @elseif ($test->bidang_tugas == Null)
         -- Tiada Rekod --
       @else
@@ -59,30 +57,27 @@
         @endif
       </td>
       <td style="width: 36%;">
-        @if ($test->penyemak1 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
-                  data-attr="{{ route('p2.edit', $test->id) }}" >
+        @if ($test->penyemak1 == Auth::user()->name && $test->bidang_tugas1 != Null)
+          <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;<a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
+                  data-attr="{{ route('p2.edit', $test->id) }}" >{{$test->bidang_tugas1}} </a>
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran1}}
+              </li>
+            </ul> 
+        @elseif ($test->penyemak3 == Auth::user()->name && $test->bidang_tugas1 != Null)
+        
             <ul>
               <li><span style="text-decoration: underline;">Bidang Tugas:</span>
-                &nbsp;{{$test->bidang_tugas1}}
+                &nbsp;<a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
+                  data-attr="{{ route('p2.edit', $test->id) }}" >{{$test->bidang_tugas1}} </a>
               </li>
               <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
                 &nbsp;{{$test->sasaran1}}
               </li>
-            </ul>  
-        </a>
-        @elseif ($test->penyemak3 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
-                  data-attr="{{ route('p2.edit', $test->id) }}" >
-                  <ul>
-              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
-                &nbsp;{{$test->bidang_tugas1}}
-              </li>
-              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
-                &nbsp;{{$test->sasaran1}}
-              </li>
-            </ul>  
-        </a>
+            </ul> 
         @elseif ($test->bidang_tugas1 == Null)
           -- Tiada Rekod --
         @else
