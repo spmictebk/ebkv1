@@ -90,9 +90,7 @@
       @endif
   </tbody>
 </table>
-    
-<hr>
-<br>
+ 
     <!-- Ulasan -->
     <!-- @if ( $test->kpp_nama != Null)
     <table style="width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
