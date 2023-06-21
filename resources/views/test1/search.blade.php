@@ -152,14 +152,13 @@
     @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
         
     @endif
-
+    
   @empty  
   </tr>
 
           <tr>
               <td></td>
-          </tr>    
-          
+          </tr> 
   @endforelse
     </tbody>
 
