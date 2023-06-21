@@ -1,5 +1,4 @@
-
-
+<!--
 <table class="table table-striped table-bordered table-sm">
   <tbody>
     <tr>
@@ -56,53 +55,46 @@
   @endforeach
 </table>
 <hr>
+-->
 
 
 @switch ($test->children)
 @case  ($test->children != Null)
-<!-- Kira-kira penilaian pertama -->
-
-    @if ($test->pp_1_nama != Null || $test->status_sasaran == 'Tambah')
-    <table style="width: 50%; border-collapse: collapse; background-color: honeydew; float: left;" border="1">
-      <tbody>
-        <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan penilaian pertama selesai </B></td>
-        </tr>
-      </tbody>
-    </table>
-    @else
-    <table style="width: 50%; border-collapse: collapse; background-color: honeydew; float: left;" border="1">
-      <tbody>
-        <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan penilaian pertama belum dilaksana </B></td>
-        </tr>
-      </tbody>
-    </table>
-    @endif
-
-    <!-- Kira-kira penilaian Akhir -->
-    @if ($test->pp_2_nama != Null)
-    <table style="width: 50%; border-collapse: collapse; background-color: honeydew; float: left;" border="1">
-      <tbody>
-        <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan penilaian akhir selesai </B></td>
-        </tr>
-      </tbody>
-    </table>
-    @else
-    <table style="width: 50%; border-collapse: collapse; background-color: lavenderblush; float: right;" border="1">
-      <tbody>
-        <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan penilaian akhir belum dilaksana </B></td>
-        </tr>
-      </tbody>
-    </table>
-
-    @endif
+<!-- Kira-kira penilaian pertama dan akhir -->
+<table style="border-collapse: collapse; width: 100%;" border="1">
+  <tbody>
+    <tr>
+      @if ($test->tahap1 != Null)
+      <td style="width: 50%; text-align: center; background-color: honeydew;" colspan="2"><B>Pengiraan penilaian pertama selesai </B></td>
+      @else      
+      <td style="width: 50%; text-align: center; background-color: lavenderblush" colspan="2"><B>Pengiraan penilaian pertama belum dilaksana </B></td>
+      @endif
+    </tr>
+    <tr>
+      @if ($test->tahap2 != Null)
+      <td style="width: 50%; text-align: center; background-color: honeydew;" colspan="2"><B>Pengiraan penilaian akhir selesai </B></td>
+      @else      
+      <td style="width: 50%; text-align: center; background-color: lavenderblush" colspan="2"><B>Pengiraan penilaian akhir belum dilaksana </B></td>
+      @endif
+    </tr>
+      @if ($test->penyemak3 != Null)
+      <tr>
+          <td style="width: 50; text-align: center;"><B>Pegawai Penilai Pertama untuk {{$test->pyd}} : <p style="color:green;">{{$test->penyemak3}}</p> </B></td>
+          <td style="width: 50; text-align: center;"><B>Pegawai Penilai Akhir untuk {{$test->pyd}} : <p style="color:blue;">{{$test->penyemak3}}</p> </B></td>
+      </tr>
+      @else
+      <tr>
+          <td style="width: 50; text-align: center;"><B>Pegawai Penilai Pertama untuk {{$test->pyd}} : <p style="color:green;">{{$test->penyemak1}}</p> </B></td>
+          <td style="width: 50; text-align: center;"><B>Pegawai Penilai Akhir untuk {{$test->pyd}} : <p style="color:blue;">{{$test->penyemak2}}</p></B></td>
+      </tr>
+      @endif
+  </tbody>
+</table>
+    
 <hr>
 <br>
     <!-- Ulasan -->
-    @if ( $test->kpp_nama != Null)
+    <!-- @if ( $test->kpp_nama != Null)
     <table style="width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
       <tbody>
 
@@ -120,7 +112,7 @@
         </tr>
         </tbody>
       </table>
-    @endif
+    @endif 
     <hr>
     <table style="width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
       <tbody>
@@ -136,7 +128,7 @@
           </tr>
           @endif
       </tbody>
-    </table>
+    </table>-->
 
     <hr>
 @break
