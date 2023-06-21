@@ -1,5 +1,3 @@
-
-
 <table class="table table-striped table-bordered table-sm">
   <tbody>
     <tr>
@@ -7,9 +5,9 @@
       <td style="width: 50%; background-color: LightSteelBlue; text-align: center;" colspan="3"><b>Penilaian Akhir</b></td>
     </tr>
     <tr>
-      <td style="width: 36%; background-color: LightGray;">Bidang Tugas / Fungsi</td>
+      <td style="width: 36%; background-color: LightGray; text-align: center;">eKeberhasilan Pertama</td>
       <td style="width: 7.5%; background-color: LightSlateGray; text-align: center;"><span style="color: #ffffff;">Semakan</span></td>
-      <td style="width: 36%; background-color: LightGray;">Bidang Tugas / Fungsi</td>
+      <td style="width: 36%; background-color: LightGray; text-align: center;">eKeberhasilan Akhir</td>
       <td style="width: 13%; background-color: Silver; text-align: center;">Status Sasaran</td>
       <td style="width: 7.5%; background-color: LightSlateGray; text-align: center;"><span style="color: #ffffff;">Semakan</span></td>
     </tr>
@@ -17,13 +15,38 @@
     <tr>
       <td style="width: 36%;">
       @if ($test->penyemak1 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" > {{$test->bidang_tugas}} </a>
+        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" > 
+        <ul>
+        <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+          &nbsp;{{$test->bidang_tugas}}
+        </li>
+        <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+          &nbsp;{{$test->sasaran}}
+        </li>
+        </ul>  
+        </a>
       @elseif ($test->penyemak3 == Auth::user()->name)
-        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" > {{$test->bidang_tugas}} </a>
+        <a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" >
+        <ul>
+        <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+          &nbsp;{{$test->bidang_tugas}}
+        </li>
+        <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+          &nbsp;{{$test->sasaran}}
+        </li>
+        </ul>  
+        </a>
       @elseif ($test->bidang_tugas == Null)
         -- Tiada Rekod --
       @else
-        {{$test->bidang_tugas}}
+            <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;{{$test->bidang_tugas}}
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran}}
+              </li>
+            </ul> 
       @endif
       </td>
       <td style="width: 7.5%; text-align: center;">
@@ -38,14 +61,39 @@
       <td style="width: 36%;">
         @if ($test->penyemak1 == Auth::user()->name)
         <a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
-                  data-attr="{{ route('p2.edit', $test->id) }}" >  {{$test->bidang_tugas1}}</a>
+                  data-attr="{{ route('p2.edit', $test->id) }}" >
+            <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;{{$test->bidang_tugas1}}
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran1}}
+              </li>
+            </ul>  
+        </a>
         @elseif ($test->penyemak3 == Auth::user()->name)
         <a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
-                  data-attr="{{ route('p2.edit', $test->id) }}" >  {{$test->bidang_tugas1}}</a>
+                  data-attr="{{ route('p2.edit', $test->id) }}" >
+                  <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;{{$test->bidang_tugas1}}
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran1}}
+              </li>
+            </ul>  
+        </a>
         @elseif ($test->bidang_tugas1 == Null)
           -- Tiada Rekod --
         @else
-          {{$test->bidang_tugas1}}
+            <ul>
+              <li><span style="text-decoration: underline;">Bidang Tugas:</span>
+                &nbsp;{{$test->bidang_tugas1}}
+              </li>
+              <li><span style="text-decoration: underline;">Sasaran Keberhasilan:</span>
+                &nbsp;{{$test->sasaran1}}
+              </li>
+            </ul>  
         @endif
       </td>
       <td style="width: 13%; text-align: center;">
@@ -68,12 +116,10 @@
     @endforeach
   </tbody>
 </table>
-<hr>
 
 @switch ($test->children)
 @case ($test->children != Null)
-<!-- Kira-kira penilaian pertama -->
-
+    <!-- Kira-kira penilaian pertama -->
     @if ($test->pp_1_nama != Null || $test->status_sasaran == 'Tambah')
     <form id = "testedit" method="POST" action="{{ route('kira.test2', $test->ext2_id ) }}" enctype="multipart/form-data">
       @csrf
@@ -104,17 +150,25 @@
         <tr>
           <td style="width: 33.3333%; text-align: center;" colspan="3"><button class="btn btn-primary btn-sm fa fa-calculator" type="submit"> kemaskini kira-kira</button></td>
         </tr>
+        <tr>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><hr></td>
+        </tr>
       </tbody>
     </table>
     </form>
+
     @else
     <table style="width: 50%; border-collapse: collapse; background-color: honeydew; float: left;" border="1">
       <tbody>
         <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Semakan penilaian pertama belum dilaksana </B></td>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan eKeberhasilan Pertama Belum Dilaksana </B></td>
+        </tr>
+        <tr>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><hr></td>
         </tr>
       </tbody>
     </table>
+    
     @endif
 
     <!-- Kira-kira penilaian Akhir -->
@@ -148,6 +202,9 @@
         <tr>
           <td style="width: 33.3333%; text-align: center;" colspan="3"><button class="btn btn-primary btn-sm fa fa-calculator" type="submit"> kemaskini kira-kira</button></td>
         </tr>
+        <tr>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><hr></td>
+        </tr>
       </tbody>
     </table>
     </form>
@@ -155,16 +212,19 @@
     <table style="width: 50%; border-collapse: collapse; background-color: lavenderblush; float: right;" border="1">
       <tbody>
         <tr>
-          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Semakan penilaian akhir belum dilaksana </B></td>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><B>Pengiraan eKeberhasilan Pertama Belum Dilaksana </B></td>
+        </tr>
+        <tr>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><hr></td>
         </tr>
       </tbody>
     </table>
-
+    <hr>
     @endif
-<hr>
+
 
     <!-- Ulasan -->
-    @if ( $test->penyemak2 == Auth::user()->name || $test->penyemak3 == Auth::user()->name)
+    <!-- @if ( $test->penyemak2 == Auth::user()->name || $test->penyemak3 == Auth::user()->name)
     <form id = "pp2edit" method="POST" action="{{ route('ulasan.test4', $test->ext2_id) }}" enctype="multipart/form-data">
                     @csrf
         <input type="hidden" name="ext2_id" value="{{$test['ext2_id']}}" />
@@ -204,7 +264,7 @@
           </tbody>
         </table>
 
-    </form>
+    </form> 
     @elseif ($test->penyemak2 != Auth::user()->name || $test->penyemak3 != Auth::user()->name)
       <table style="width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
         <tbody>
@@ -224,11 +284,28 @@
         </tbody>
       </table>
     @endif
+    -->
+
+    @if ($test->tahap1 && $test->tahap2 != Null)
+      <table style="width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
+        <tbody>
+
+        <tr>
+        <td style="width: 100%; text-align: center;" colspan="2"><B>Penilaian eKeberhasilan {{$test->pyd}} untuk {{$test->tahun}} <span style="color:green;font-weight:bolder">SELESAI</span></B></td>
+        </tr>
+        <tr>
+          <td style="width: 99.9999%; border-style: double; text-align: center;" colspan="3"><hr></td>
+        </tr>
+        </tbody>
+      </table>
+    @else
+    @endif
 
 @break
 @default
 @break
 @endswitch
+
 
 <!-- medium modal 1 -->
 <div class="modal fade BigModal" id="mediumModalP1" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabelP1"
@@ -291,4 +368,3 @@
                 </div>
         </div>
 </div>
-
