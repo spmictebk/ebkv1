@@ -533,7 +533,7 @@ class Test3Controller extends Controller
     
                 $tests1 = Test::query()->with('children')->whereNull('ext2_id')
                 ->where('penyemak2' , '!=', Null)
-                ->where('penyemak3' , '==', Null)
+                ->whereNull('penyemak3')
                 //->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
                 ->orderBy('id', 'asc')
