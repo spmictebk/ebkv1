@@ -523,119 +523,119 @@ class Test3Controller extends Controller
         $user = Auth::user();
                 
         switch ($user) {
-        case $user->hasRole( 'admin') :
-            $tests = Test::query()->with('children')->whereNull('ext2_id')
-            ->where('penyemak1' , '!=', Null)
-            //->where( 'penyemak1', $user->name )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
+            case $user->hasRole( 'admin') :
+                $tests = Test::query()->with('children')->whereNull('ext2_id')
+                ->where('penyemak1' , '!=', Null)
+                //->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                
+                $tests1 = Test::query()->with('children')->whereNull('ext2_id')
+                ->where('penyemak2' , '!=', Null)
+                //->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                $tests2 = Test::query()->with('children')->whereNull('ext2_id')
+                ->where('penyemak3' , '!=', Null)
+                //->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+                
+            break;
             
-            $tests1 = Test::query()->with('children')->whereNull('ext2_id')
-            ->where('penyemak2' , '!=', Null)
-            //->where( 'penyemak1', $user->name )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
-            $tests2 = Test::query()->with('children')->whereNull('ext2_id')
-            ->where('penyemak3' , '!=', Null)
-            //->where( 'penyemak1', $user->name )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
+            case $user->hasRole( 'pp1') :
+                
+                $tests = Test::query()->with('children')->whereNull('ext2_id')
+                //->where('penyemak2' , '!=', Null)
+                ->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                
+                $tests1 = Test::query()->with('children')->whereNull('ext2_id')
+                //->where('penyemak1' , '!=', Null)
+                //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
+                ->where('penyemak2', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                $tests2 = Test::query()->with('children')->whereNull('ext2_id')
+                //->where( 'penyemak1', $user->name )
+                //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
+                ->where('penyemak3', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+            break;
+    
+            case $user->hasRole( 'pp2') :
+                
+                $tests = Test::query()->with('children')->whereNull('ext2_id')
+                ->whereNull('pp2_semak')
+                ->where( 'penyemak1', $user->name )
+                //->where('sektor_id', $user->sektor)
+                //->where('unit_id', $user->unit )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+                
+                $tests1 = Test::query()->with('children')->whereNull('ext2_id')
+                ->whereNull('pp2_semak')
+                //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
+                ->where('penyemak2', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                $tests2 = Test::query()->with('children')->whereNull('ext2_id')
+                ->whereNull('pp2_semak')
+                //->where( 'penyemak1', $user->name )
+                //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
+                ->where('penyemak3', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+            break;
             
-        break;
-        
-        case $user->hasRole( 'pp1') :
-            
-            $tests = Test::query()->with('children')->whereNull('ext2_id')
-            //->where('penyemak2' , '!=', Null)
-            ->where( 'penyemak1', $user->name )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
-            
-            $tests1 = Test::query()->with('children')->whereNull('ext2_id')
-            //->where('penyemak1' , '!=', Null)
-            //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
-            ->where('penyemak2', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
-            $tests2 = Test::query()->with('children')->whereNull('ext2_id')
-            //->where( 'penyemak1', $user->name )
-            //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
-            ->where('penyemak3', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-        break;
-
-        case $user->hasRole( 'pp2') :
-            
-            $tests = Test::query()->with('children')->whereNull('ext2_id')
-            ->whereNull('pp2_semak')
-            ->where( 'penyemak1', $user->name )
-            //->where('sektor_id', $user->sektor)
-            //->where('unit_id', $user->unit )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-            
-            $tests1 = Test::query()->with('children')->whereNull('ext2_id')
-            ->whereNull('pp2_semak')
-            //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
-            ->where('penyemak2', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
-            $tests2 = Test::query()->with('children')->whereNull('ext2_id')
-            ->whereNull('pp2_semak')
-            //->where( 'penyemak1', $user->name )
-            //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
-            ->where('penyemak3', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-        break;
-        
-        case $user->hasRole( 'pengarah') :
-            
-            $tests = Test::query()->with('children')->whereNull('ext2_id')
-            //->whereNull('penyemak2')
-            ->where( 'penyemak1', $user->name )
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-            
-            $tests1 = Test::query()->with('children')->whereNull('ext2_id')
-            //->whereNull('penyemak1')
-            //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
-            ->where('penyemak2', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-
-            $tests2 = Test::query()->with('children')->whereNull('ext2_id')
-            //->whereNull('penyemak1')
-            //->whereNull('penyemak2')
-            ->where('penyemak3', $user->name)
-            ->where('ic', 'LIKE', "%{$search}%")
-            ->orderBy('id', 'asc')
-            ->get();
-        break;
-
-        default :
-
-        break;
-
-        }
-        return view ('/test1/search', compact('user', 'tests', 'tests1', 'tests2'));
+            case $user->hasRole( 'pengarah') :
+                
+                $tests = Test::query()->with('children')->whereNull('ext2_id')
+                //->whereNull('penyemak2')
+                ->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+                
+                $tests1 = Test::query()->with('children')->whereNull('ext2_id')
+                //->whereNull('penyemak1')
+                //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
+                ->where('penyemak2', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+    
+                $tests2 = Test::query()->with('children')->whereNull('ext2_id')
+                //->whereNull('penyemak1')
+                //->whereNull('penyemak2')
+                ->where('penyemak3', $user->name)
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
+            break;
+    
+            default :
+    
+            break;
+    
+            }
+            return view ('/test1/search', compact('user', 'tests', 'tests1', 'tests2'));
     }
 
     public function AdsearchPost(Request $request, User $user)
