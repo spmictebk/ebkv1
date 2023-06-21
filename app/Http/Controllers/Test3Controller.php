@@ -439,7 +439,7 @@ class Test3Controller extends Controller
         ]);
 
 
-        return redirect()->route('search.test3')->with('success', ' Kemaskini Kiraan Selesai !');
+        return redirect()->back()->with('success', ' Kemaskini Kiraan Selesai !');
 
         //dd($input);
     }
@@ -495,7 +495,7 @@ class Test3Controller extends Controller
         ]);
 
 
-        return redirect()->route('search.test3')->with('success', ' Kemaskini Kiraan Selesai !');
+        return redirect()->back()->with('success', ' Kemaskini Kiraan Selesai !');
 
         //dd($input);
     }
