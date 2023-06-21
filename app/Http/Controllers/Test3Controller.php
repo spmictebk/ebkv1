@@ -531,7 +531,13 @@ class Test3Controller extends Controller
                 ->orderBy('id', 'asc')
                 ->get();
     
-                
+                $tests1 = Test::query()->with('children')->whereNull('ext2_id')
+                ->where('penyemak2' , '!=', Null)
+                ->where('penyemak3' , '==', Null)
+                //->where( 'penyemak1', $user->name )
+                ->where('ic', 'LIKE', "%{$search}%")
+                ->orderBy('id', 'asc')
+                ->get();
                   
                 $tests2 = Test::query()->with('children')->whereNull('ext2_id')
                 ->where('penyemak3' , '!=', Null)
