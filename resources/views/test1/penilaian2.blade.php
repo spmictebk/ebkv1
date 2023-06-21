@@ -1,46 +1,43 @@
-
 <input type="hidden" name="id" value="{{$data['id']}}">
 <input type="hidden" name="pp_2_nama" value="{{$data['name']}}">
-<table style="border-collapse: collapse; width: 100%; height: 149px;" border="1">
-    <tbody>
-        <tr style="height: 18px;">
-            <td style="width: 33.3333%; text-align: center; height: 18px; background-color: lightskyblue; text-align: center;" colspan="3"><b>Semakan {{$data['pyd']}} kali pertama untuk tahun {{$data['tahun']}}</b></td>
-        </tr>
-        <tr style="height: 38px;">
-            <td style="width: 33.3333%; height: 38px; text-align: center; background-color: paleturquoise;">Bidang Tugas / Fungsi</td>
-            <td style="width: 33.3333%; height: 38px;" colspan="2">
-            <div>
-            <div>  {{$data['bidang_tugas1']}}</div>
-            </div>
-            </td>
-        </tr>
-        <tr style="height: 36px;">
-            <td style="width: 33.3333%; text-align: center; height: 36px; background-color: paleturquoise;">Bilangan</td>
-            <td style="width: 33.3333%; text-align: center; height: 36px; background-color: paleturquoise;">Sasaran Keberhasilan</td>
-            <td style="width: 33.3333%; text-align: center; height: 36px; background-color: paleturquoise;">Pencapaian Semasa Penilaian Akhir</td>
-        </tr>
-        <tr style="height: 21px;">
-            <td style="width: 33.3333%; text-align: center; height: 21px;">&nbsp;{{$data['bil']}}</td>
-            <td style="width: 33.3333%; text-align: center; height: 21px;">&nbsp;{{$data['sasaran1']}}</td>
-            <td style="width: 33.3333%; text-align: center; height: 21px;">&nbsp;{{$data['pencapaian_2']}}</td>
-        </tr>
-        <tr style="height: 21px;">
-            <td style="width: 33.3333%; height: 21px; text-align: center; background-color: papayawhip;">Penilaian Akhir</td>
-            <td style="width: 33.3333%; height: 21px; text-align: center; background-color: papayawhip;">Semakan Penilaian Akhir</td>
-            <td style="width: 33.3333%; height: 21px; text-align: center; background-color: papayawhip;">&nbsp;Status Sasaran</td>
-        </tr>
-        <tr style="height: 18px;">
-        @if ($data->status_sasaran == "Gugur")
-            <td style="width: 33.3333%; height: 18px; text-align: center;"><input class="form-control" name="penilaian_2" type="text" style="text-align:center;" value="" readonly /></td>
-        @else
-            <td style="width: 33.3333%; height: 18px; text-align: center;"><input class="form-control" name="penilaian_2" type="text" style="text-align:center;" value="{{$data['penilaian_2']}}" /></td>
-        @endif
-            <td style="width: 33.3333%; height: 18px; text-align: center;">&nbsp;<input type="checkbox" id="myCheck" name="pp2_semak" required> 
+
+<table style="border-collapse: collapse; width: 100%; height: 108px;" border="1">
+        <tbody>
+            <tr style="height: 18px;">
+                <td style="width: 33.3333%; background-color: lightskyblue; text-align: center; height: 18px;" colspan="4"><b>Semakan {{$data['pyd']}} Akhir untuk tahun {{$data['tahun']}}</b></td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 31.273%; text-align: right; height: 18px; background-color: paleturquoise;"><b>Bidang Tugas / Fungsi:</b></td>
+                <td style="width: 69.2804%; height: 18px;" colspan="3">&nbsp; {{$data['bidang_tugas1']}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 31.273%; text-align: right; height: 18px; background-color: paleturquoise;"><b>Sasaran Keberhasilan:</b></td>
+                <td style="width: 69.2804%; height: 18px;" colspan="3">&nbsp; {{$data['sasaran1']}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 31.273%; text-align: right; height: 18px; background-color: paleturquoise;">
+                <div>
+                <div><b>Kuantiti/Kualiti/Masa/Kos:</b></div>
+                </div>
+                </td>
+                <td style="width: 17.989%; height: 18px; text-align: center;">{{$data['bil2']}}</td>
+                <td style="width: 35.332%; text-align: right; height: 18px; text-align: center; background-color: paleturquoise;"><b>Pencapaian Akhir:</b></td>
+                <td style="width: 15.9594%; height: 18px; text-align: center;">{{$data['pencapaian_2']}}</td>              
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 100.553%; height: 18px;" colspan="4"><hr></td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 49.262%; height: 18px; text-align: center; background-color: papayawhip;" colspan="2"><b>Markah Penilaian Akhir</b></td>
+                <td style="width: 51.2914%; height: 18px; text-align: center; background-color: papayawhip;" colspan="2"><b>Pengesahan</b></td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 49.262%; height: 18px;" colspan="2"><input class="form-control" name="penilaian_2" type="text" style="text-align:center;" value="{{$data['penilaian_2']}}" /></td>
+                <td style="width: 51.2914%; height: 18px; text-align: center;" colspan="2">&nbsp;
+                <input type="checkbox" id="myCheck" name="pp2_semak" required> 
                 <button type="button" class="check" value="{{$data['name']}}"></button>
-                <button type="button" class="uncheck" value=""></button></td>
-            <td style="width: 33.3333%; height: 18px; text-align: center;">&nbsp;{{$data['status_sasaran']}}</td>
-        </tr>
-    </tbody>
-</table>
-
-
+                <button type="button" class="uncheck" value=""></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
