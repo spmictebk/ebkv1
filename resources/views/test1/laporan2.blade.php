@@ -19,11 +19,11 @@
             @else
             <td style="width: 33.3333%; text-align: center;"><B>Semakan Akhir : <span style="color:maroon;">Tidak Lengkap</span></B></td>
             @endif
-            @if ($test->catatan != Null)
+            <!-- @if ($test->catatan != Null)
             <td style="width: 33.3333%; text-align: center;"><B>Ulasan : <span style="color:green;">Lengkap</span></B></td>
             @else
             <td style="width: 33.3333%; text-align: center;"><B>Ulasan : <span style="color:maroon;">Tidak Lengkap</span></B></td>
-            @endif
+            @endif -->
         </tr>
     </tbody>
 </table>
