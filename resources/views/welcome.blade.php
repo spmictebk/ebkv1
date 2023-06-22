@@ -22,6 +22,9 @@ body  {
         <meta name="theme-color" content="#6777ef"/>
         <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
+        
+        <script src="{{ asset('/sw.js') }}"></script>
+
 
         <title>Sistem eBK</title>
 
@@ -96,16 +99,14 @@ body  {
                         <div class="flex items-center">
                         <p align=center><img src="{{ asset('/storage/ebk/notebook.jpg') }}" alt height="90%" width="90%"></p>
                         </div>
-
-                        <script src="{{ asset('/sw.js') }}"></script>
-
-                        <script>
-                            if (!navigator.serviceWorker.controller) {
-                                navigator.serviceWorker.register("/sw.js").then(function (reg) {
-                                    console.log("Service worker has been registered for scope: " + reg.scope);
-                                });
-                            }
-                        </script>
-                        
+                       
     </body>
+
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
 </html>
