@@ -96,5 +96,16 @@ body  {
                         <div class="flex items-center">
                         <p align=center><img src="{{ asset('/storage/ebk/notebook.jpg') }}" alt height="90%" width="90%"></p>
                         </div>
+
+                        <script src="{{ asset('/sw.js') }}"></script>
+
+                        <script>
+                            if (!navigator.serviceWorker.controller) {
+                                navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                                    console.log("Service worker has been registered for scope: " + reg.scope);
+                                });
+                            }
+                        </script>
+                        
     </body>
 </html>
