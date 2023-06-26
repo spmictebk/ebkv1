@@ -55,7 +55,13 @@
   @if (count($test['children']) > 0  )
         
   @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-      
+  <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
+      <tbody>
+      <tr style="height: 18px;">
+        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
+      </tr>
+      </tbody>
+    </table>    
   @endif
 
 @empty  
@@ -103,7 +109,13 @@
   @if (count($test['children']) > 0  )
         
   @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-      
+  <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
+      <tbody>
+      <tr style="height: 18px;">
+        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
+      </tr>
+      </tbody>
+    </table>    
   @endif
 
   @empty  
@@ -150,7 +162,13 @@
     @if (count($test['children']) > 0  )
           
     @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-        
+    <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
+      <tbody>
+      <tr style="height: 18px;">
+        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
+      </tr>
+      </tbody>
+    </table>    
     @endif
     
   @empty  
