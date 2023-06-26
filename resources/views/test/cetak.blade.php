@@ -44,8 +44,11 @@
         <div class="container">
             <br>
             <br>
-            <p align=right><img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 97px; height: 100px; border-radius: 50%"></p>
-            
+            @if ($test->avatar_id != Null)
+            <p align=right><img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 98px; height: 100px; border-radius: 50%"></p>
+            @else
+            <p align=right><img src="{{ asset('/storage/ebk/avatar/unknown.png') }}" style="width: 98px; height: 100px; border-radius: 50%"></p>
+            @endif
             <table style="height: 90px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1">
                 <tbody>
                 <tr>
