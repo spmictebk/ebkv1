@@ -27,13 +27,17 @@
 
 @forelse ( $tests as $test)
 
-<table  class="table table-bordered table-striped table-dark table-sm">
+<table  class="table table-bordered table-striped table-sm" style="background-color: LightBlue; color: black;" >
   <thead class="thead-dark">
     <tr>
       <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
       <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
         <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+          @if ($test->avatar_id != NULL)
           <img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @else
+          <img src="{{ asset('/storage/ebk/avatar/unknown.png') }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @endif        
         </div>
       </td>
       <td style="width: 10%;">Nama:</td>
