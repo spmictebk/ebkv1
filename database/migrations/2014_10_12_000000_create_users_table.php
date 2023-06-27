@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('sektor');
-            $table->string('unit')->nullable();;
+            $table->string('unit')->nullable();
             $table->string('ic');
             $table->string('jawatan');
             $table->string('gred');
