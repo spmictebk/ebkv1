@@ -407,21 +407,21 @@ class Test3Controller extends Controller
             $purata = round($total / $input);
         }
 
-        switch ($purata1) {
-        case $purata1 >= 81 :
+        switch ($purata) {
+        case $purata >= 81 :
             $skor = 5;
             $tahap1 = 'Cemerlang';
         break;
-        case $purata1 >= 61 :
+        case $purata >= 61 :
             $skor = 4;
             $tahap1 = 'Baik';
         break;
-        case $purata1 >= 41 :
+        case $purata >= 41 :
             $skor = 3;
             $tahap1 = 'Sederhana';
         break;
 
-        case $purata1 >= 21 :
+        case $purata >= 21 :
             $skor = 2;
             $tahap1 = 'Memuaskan';
         break;
