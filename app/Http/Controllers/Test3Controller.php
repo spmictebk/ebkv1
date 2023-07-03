@@ -401,7 +401,11 @@ class Test3Controller extends Controller
         $total = Test::where('ext1_id', $request->ext2_id)->sum('penilaian_1');
         $input = Test::where('ext1_id', $request->ext2_id)->where('penilaian_1', '!=', 'Null')->count();
         //$purata = Test::select('jumlah_input')->where('ext1_id', '=', $request->ext2_id)->value('jumlah_input');
-        $purata1 = (round($total / $input)); //$tipslastmonth == 0 ? 0 : ($sumOfTheOddsLastMonth / $tipslastmonth);
+        if ($input == 0) {
+            return redirect()->back()->with('warning', 'Ralat!, Terdapat kekosongan markah penilaian');
+        } else {
+            $purata = round($total / $input);
+        }
 
         switch ($purata1) {
         case $purata1 >= 81 :
@@ -433,14 +437,13 @@ class Test3Controller extends Controller
         $test = Test::where('ext1_id', '=', $request->ext2_id)
         ->update(['total_all' => $total,
         'jumlah_input' =>$input,
-        'purata' => $purata1,
+        'purata' => $purata,
         'skor' => $skor,
         'tahap1' => $tahap1,
         ]);
 
-
-        return redirect()->back()->with('success', ' Kemaskini Kiraan Selesai !');
-
+       
+        return redirect()->back()->with('success', 'Kemaskini Kiraan Selesai!');
         //dd($input);
     }
 
@@ -450,9 +453,13 @@ class Test3Controller extends Controller
         $total1 = Test::where('ext1_id', '=', $request->ext2_id)->sum('penilaian_2');
 
         $input1 = Test::where('ext1_id', '=', $request->ext2_id)->where('penilaian_2', '!=', 'Null')->count();
-        //$purata = Test::select('jumlah_input')->where('ext1_id', '=', $request->ext2_id)->value('jumlah_input');
+        //$purata1 = Test::select('jumlah_input')->where('ext1_id', '=', $request->ext2_id)->value('jumlah_input');
 
-        $purata1 = $total1 / $input1;
+        if ($input1 == 0) {
+            return redirect()->back()->with('warning', 'Ralat!, Terdapat kekosongan markah penilaian');
+        } else {
+            $purata1 = round($total1 / $input1);
+        }
 
         switch ($purata1) {
         case $purata1 >= 81:
@@ -494,13 +501,10 @@ class Test3Controller extends Controller
         'tahap2' => $tahap2,
         ]);
 
-
         return redirect()->back()->with('success', ' Kemaskini Kiraan Selesai !');
 
         //dd($input);
     }
-
-
 
     public function cetak2(Test $test)
     {
