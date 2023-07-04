@@ -3,7 +3,7 @@
 <head>
 <style>
 body  {
-    background-image: url("./storage/ebk/blue.png");
+    background-image: url("./storage/ebk/blue.jpeg");
     height: 85vh;
     background-size: cover;
     background-position: center center;
@@ -47,7 +47,7 @@ body  {
                 </div>
             @endif
 
-            <br><p align=center><img src="./storage/ebk/banner.png" alt height="40%" width="42%">
+            <br><p align=center><img src="./storage/ebk/banner.jpeg" alt height="40%" width="42%">
             <br>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
