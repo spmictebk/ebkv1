@@ -3,8 +3,8 @@
 <head>
 <style>
 body  {
-    background-image: url("./storage/ebk/grey.png");
-    height: 96vh;
+    background-image: url("./storage/ebk/blue.png");
+    height: 85vh;
     background-size: cover;
     background-position: center center;
 }
@@ -14,17 +14,10 @@ body  {
 <h2></h2>
 </body>
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- PWA  -->
-        <meta name="theme-color" content="#6777ef"/>
-        <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
-        <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
         <title>Sistem eBK</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -54,12 +47,8 @@ body  {
                 </div>
             @endif
 
-            <h2></h2>
-            <h2></h2><br>
-            <br></br>
-            <br></br>
-            <h2></h2>
-            <h2></h2>
+            <br><p align=center><img src="./storage/ebk/banner.png" alt height="40%" width="42%">
+            <br>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
@@ -75,39 +64,31 @@ body  {
 
                             <div class="ml-12">
                                 <div class="mt-2 text-black-600 dark:text-black-400 text-sm">
-                                <p align=justify> Memudahkan pemantauan pelaksanaan eBK oleh Penyelaras PBPPP Jabatan. Penilaian keberhasilan merupakan penilai hasil kerja utama outcame/output yang memberi impak berdasarkan tugas dan tempat bertugas.
+                                <p align=justify> Memudahkan pemantauan pelaksanaan eBK oleh Penyelaras PBPPP Jabatan.
                                 </div>
 
                                 <div class="mt-2 text-black-600 dark:text-black-400 text-sm">
-                                <p align=justify> Mengukuhkan pengurusan dokumen/borang skor keberhasilan dari keciciran. Asas penilaian keberhasilan berfokuskan kepada peningkatan atau pencapaian.</div>
+                                <p align=justify> Mengukuhkan pengurusan dokumen/borang skor keberhasilan dari keciciran. Asas penilaian keberhasilan berfokuskan kepada peningkatan atau pencapaian.
+                                </div>
 
                                 <div class="mt-2 text-black-600 dark:text-black-400 text-sm">
-                                <p align=justify> Laporan penilaian boleh dimuat turun apabila diperlukan.</div>
+                                <p align=justify> Laporan penilaian boleh dimuat turun apabila diperlukan.
 
-                                <div class="mt-2 text-black-600 dark:text-black-400 text-sm">
-                                <p align=justify> Meningkatkan kecekapan dan komitmen bagi melahirkan PPP yang berprestasi tinggi.</div>
-
-                                <div class="mt-2 text-black-600 dark:text-black-400 text-sm">
-                                <p align=justify> Mendokong aspirasi ke arah pendidikan yang berkualiti tinggi.</div>
-
+                                <br><br><a href="{{ asset('./storage/ebk/MANUAL PENGGUNA.pdf') }}" class="btn btn-sm fa fa-info" style="background-color:Navy; color:white">MANUAL PANDUAN PENGGUNA</button></a></div>
+                        </div>
+                    </div>
+                        <div class="flex items-center">
+                        <p align=center><img src="./storage/ebk/notebook.jpg" alt height="85%" width="85%"></p>
                         </div>
                     </div>
 
-                        <div class="flex items-center">
-                        <p align=center><img src="{{ asset('/storage/ebk/notebook.jpg') }}" alt height="90%" width="90%"></p>
-                        </div>
-
-    <!-- PWA Script -->
-    <script src="{{ asset('/sw.js') }}"></script>
-	<script>
-	    if (!navigator.serviceWorker.controller) {
-	        navigator.serviceWorker.register("/sw.js").then(function (reg) {
-	            console.log("Service worker has been registered for scope: " + reg.scope);
-	        });
-    }
-	</script> 
-                       
     </body>
-
-   
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(77, 76, 76, 0.2);">
+            Hak Cipta © 2023
+          <a class="text-dark">| | JPN MELAKA | |<b> Kementerian Pendidikan Malaysia</b> </a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 </html>
