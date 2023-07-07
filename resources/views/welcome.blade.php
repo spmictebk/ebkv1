@@ -15,8 +15,12 @@ body  {
 </body>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
+        <!-- PWA  -->
+    	<meta name="theme-color" content="#6777ef"/>
+    	<link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
+    	<link rel="manifest" href="{{ asset('/manifest.json') }}">
+        
         <title>Sistem eBK</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -81,6 +85,15 @@ body  {
                         <p align=center><img src="./storage/ebk/notebook.jpg" alt height="85%" width="85%"></p>
                         </div>
                     </div>
+                    <!-- PWA -->
+                	<script src="{{ asset('/sw.js') }}"></script>
+                	<script>
+                	    if (!navigator.serviceWorker.controller) {
+                	        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                	            console.log("Service worker has been registered for scope: " + reg.scope);
+                	        });
+                    }
+                	</script> 
 
     </body>
     <footer class="bg-light text-center text-lg-start">
