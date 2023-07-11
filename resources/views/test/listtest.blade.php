@@ -10,7 +10,7 @@
 <div class="col-12 text-right">
 <!--&nbsp; <button style="margin-bottom: 10px" class="btn btn-secondary float-right mb-3 delete_all bg-navy" data-url="">Hapus terpilih</button>-->
 <a class="btn btn-success text-light float-right btn-sm" data-toggle="modal" id="mediumButton1" data-target="#mediumModal1"
-                    data-attr="{{ route('create.test') }}" title="Cipta Borang"><i class="fa fa-file-o" style="font-size:18px;color:black">  Cipta</i>
+                    data-attr="{{ route('create.test') }}" title="Cipta Borang"><i class="fa-solid fa-plus fa-xs" style="color:black">  Cipta</i>
                 </a>
 </div>
 <br>
@@ -64,7 +64,7 @@
             <a href="{{ route('destroyAll.test', $test->id) }}" class="btn btn-danger btn-sm fa fa-trash" id="mediumButtonHapus" role="button" aria-pressed="true"> Hapus</a>
             <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true"> Papar</a>
             @if (count($test['children']) != Null  )
-            <a class="btn btn-success text-light btn-sm"  data-toggle="modal" id="mediumButtonAkhir" data-target="#mediumModalAkhir" data-attr="{{ route('create.test3', $test->id) }}" title="Cipta Fungsi"> Tambah</a>
+            <a class="btn btn-success text-light btn-sm"  data-toggle="modal" id="mediumButtonAkhir" data-target="#mediumModalAkhir" data-attr="{{ route('create.test3', $test->id) }}" title="Tambah"> Tambah</a>
             @else
             @endif
         </td>
@@ -81,7 +81,7 @@
                 <tr>
                     <td style="text-align:center">&nbsp;
                         <a class="btn btn-success text-light btn-sm" data-toggle="modal" id="BigButton" data-target="#BigModal"
-                                data-attr="{{ route('create.test2', $test->id) }}" title="Cipta Fungsi"> <i class="fa fa-file-o"> Cipta Fungsi</i>
+                                data-attr="{{ route('create.test2', $test->id) }}" title="Cipta Fungsi"> <i class="fa-solid fa-plus fa-xs" style="color:black"> Cipta Fungsi</i>
                         </a>
 
                     </td>
