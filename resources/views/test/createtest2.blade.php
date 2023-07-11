@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-3">
             <label for="">Kuantiti / Kualiti / Masa / Kos</label>
-            <input type="text" title="Bilangan" class="form-control form-control-sm" name="bil"  id="bil" value="" required >
+            <input type="number" title="Bilangan" class="form-control form-control-sm" name="bil"  id="bil" value="" required >
             <font style="color:red"> {{ $errors->has('bil') ?  $errors->first('bil') : '' }} </font>
         </div>
         <div class="col-md-3">
