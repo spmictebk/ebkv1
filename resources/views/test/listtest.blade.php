@@ -61,7 +61,7 @@
         <td>{{$test->created_at}}  </td>
 
         <td style="text-align:right;">
-            <a href="{{ route('destroyAll.test', $test->id) }}" class="btn btn-danger btn-sm fa fa-trash" id="mediumButtonHapus" role="button" aria-pressed="true"> Hapus Fungsi</a>
+            <a href="{{ route('destroyAll.test', $test->id) }}" class="btn btn-danger btn-sm fa fa-trash" id="mediumButtonHapus" role="button" aria-pressed="true"> Hapus</a>
             <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true">Papar</a>
             @if (count($test['children']) != Null  )
             <a class="btn btn-success text-light btn-sm"  data-toggle="modal" id="mediumButtonAkhir" data-target="#mediumModalAkhir" data-attr="{{ route('create.test3', $test->id) }}" title="Cipta Fungsi">Tambah</a>
