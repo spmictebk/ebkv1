@@ -3,7 +3,8 @@
       <div class="row">
         <div class="col-md-2">
             <label for="">Bidang Tugas / Fungsi</label>
-                <select name="bidang_tugas" title="Bidang Tugas" id="bidang_tugas" class="form-control form-control-sm" value="">
+                <select name="bidang_tugas" title="Bidang Tugas" id="bidang_tugas" class="form-control form-control-sm" value="" required >
+                  <option value="">Sila Pilih</option>
                   <option value="Pengurusan">Pengurusan</option>
                   <option value="Pentadbiran">Pentadbiran</option>
                 </select>
@@ -11,17 +12,17 @@
         </div>
         <div class="col-md-4">
             <label for="">Sasaran Keberhasilan</label>
-            <input type="text" title="Sasaran Keberhasilan" class="form-control form-control-sm" name="sasaran"  id="sasaran" value="">
+            <input type="text" title="Sasaran Keberhasilan" class="form-control form-control-sm" name="sasaran"  id="sasaran" value="" required >
             <font style="color:red"> {{ $errors->has('sasaran') ?  $errors->first('sasaran') : '' }} </font>
         </div>
         <div class="col-md-3">
             <label for="">Kuantiti / Kualiti / Masa / Kos</label>
-            <input type="text" title="Bilangan" class="form-control form-control-sm" name="bil"  id="bil" value="">
+            <input type="text" title="Bilangan" class="form-control form-control-sm" name="bil"  id="bil" value="" required >
             <font style="color:red"> {{ $errors->has('bil') ?  $errors->first('bil') : '' }} </font>
         </div>
         <div class="col-md-3">
             <label for="">Pencapaian Semasa ('%')</label>
-            <input type="number" title="Pencapaian Semasa Penilaian Pertama" class="form-control form-control-sm" name="pencapaian_1"  id="pencapaian_1" value="">
+            <input type="number" title="Pencapaian Semasa Penilaian Pertama" class="form-control form-control-sm" name="pencapaian_1"  id="pencapaian_1" value="" required >
             <font style="color:red"> {{ $errors->has('pencapaian_1') ?  $errors->first('pencapaian_1') : '' }} </font>
         </div>
         <!--<div class="col-md-2">
