@@ -297,7 +297,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if (((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 7) || (now.getMonth() + 1) == 12) {
+            if (((now.getMonth() + 1) == 7 || (now.getMonth() + 1) == 8) || (now.getMonth() + 1) == 12) {
             $("#mediumButtonAkhir").show();
             } else {
             $("#mediumButtonAkhir").hide();
