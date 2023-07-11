@@ -9,7 +9,7 @@
 <br>
 <div class="col-12 text-right">
 <!--&nbsp; <button style="margin-bottom: 10px" class="btn btn-secondary float-right mb-3 delete_all bg-navy" data-url="">Hapus terpilih</button>-->
-<a class="btn btn-success text-light float-right mb-3" data-toggle="modal" id="mediumButton1" data-target="#mediumModal1"
+<a class="btn btn-success text-light float-right btn-sm" data-toggle="modal" id="mediumButton1" data-target="#mediumModal1"
                     data-attr="{{ route('create.test') }}" title="Cipta Borang"><i class="fa fa-file-o" style="font-size:18px;color:black">  Cipta</i>
                 </a>
 </div>
