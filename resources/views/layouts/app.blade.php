@@ -250,7 +250,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if ((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 7) {
+            if (((now.getMonth() + 1) == 7 || (now.getMonth() + 1) == 8) || (now.getMonth() + 1) == 12) {
             $("#mediumButton1").show();
             $("#mediumButtonHapus").show();
             } else {
@@ -267,7 +267,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if ((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 12) {
+            if (((now.getMonth() + 1) == 7 || (now.getMonth() + 1) == 8) || (now.getMonth() + 1) == 12) {
             $("#ButtonUlasan").show();
             } else {
             $("#ButtonUlasan").hide();
@@ -282,7 +282,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if ((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 12) {
+            if (((now.getMonth() + 1) == 7 || (now.getMonth() + 1) == 8) || (now.getMonth() + 1) == 12) {
             $("#dropdownMenuButton").show();
             } else {
             $("#dropdownMenuButton").hide();
@@ -297,7 +297,7 @@
         function TimePeriod() {
             var now = new Date();
 
-            if ((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 12) {
+            if (((now.getMonth() + 1) == 6 || (now.getMonth() + 1) == 7) || (now.getMonth() + 1) == 12) {
             $("#mediumButtonAkhir").show();
             } else {
             $("#mediumButtonAkhir").hide();
