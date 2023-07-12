@@ -45,7 +45,7 @@
             
             <tr style="height: 18px;">
                 <td style="width: 20%; height: 18px; text-align: center;"><input class="form-control" name="bil2" type="number" value="{{$data['bil']}}" /></td>
-                <td style="width: 20%; height: 18px; text-align: center;"><input class="form-control" name="pencapaian_2" type="number" value="" required /></td>
+                <td style="width: 20%; height: 18px; text-align: center;"><input class="form-control" name="pencapaian_2" type="number" value="" /></td>
                 <td style="width: 20%; height: 18px; text-align: center;"><input class="form-control" name="status_sasaran" type="text" value="Pinda" readonly /></td>
             
             </tr>
