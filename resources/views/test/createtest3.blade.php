@@ -3,26 +3,22 @@
       <div class="row">
         <div class="col-md-2">
             <label for="">Bidang Tugas / Fungsi</label>
-                <select name="bidang_tugas1" title="Bidang Tugas Akhir" id="bidang_tugas1" class="form-control form-control-sm" value="" required >
-                  <option value="">Sila Pilih</option>
-                  <option value="Pengurusan">Pengurusan</option>
-                  <option value="Pentadbiran">Pentadbiran</option>
-                </select>
+            <input type="text" title="Bidang Tugas/Fungsi Akhir" class="form-control form-control-sm" name="bidang_tugas1"  id="bidang_tugas1" value="">
             <font style="color:red"> {{ $errors->has('bidang_tugas1') ?  $errors->first('bidang_tugas1') : '' }} </font>
         </div>
         <div class="col-md-4">
             <label for="">Sasaran Keberhasilan</label>
-            <input type="text" title="Sasaran Keberhasilan Akhir" class="form-control form-control-sm" name="sasaran1"  id="sasaran1" value="" required >
+            <input type="text" title="Sasaran Keberhasilan Akhir" class="form-control form-control-sm" name="sasaran1"  id="sasaran1" value="">
             <font style="color:red"> {{ $errors->has('sasaran1') ?  $errors->first('sasaran1') : '' }} </font>
         </div>
         <div class="col-md-3">
             <label for="">Kuantiti / Kualiti / Masa / Kos</label>
-            <input type="number" title="Bilangan" class="form-control form-control-sm" name="bil2"  id="bil2" value="" required >
+            <input type="text" title="Bilangan" class="form-control form-control-sm" name="bil2"  id="bil2" value="">
             <font style="color:red"> {{ $errors->has('bil2') ?  $errors->first('bil2') : '' }} </font>
         </div>
         <div class="col-md-3">
         <label for="">Pencapaian Akhir</label>
-            <input type="number" title="Pencapaian Semasa Penilaian Akhir" class="form-control form-control-sm" name="pencapaian_2"  id="pencapaian_2" value=""  required >
+            <input type="number" title="Pencapaian Semasa Penilaian Akhir" class="form-control form-control-sm" name="pencapaian_2"  id="pencapaian_2" value="">
             <font style="color:red"> {{ $errors->has('pencapaian_2') ?  $errors->first('pencapaian_2') : '' }} </font>
         </div>
         
@@ -145,8 +141,3 @@
 
   </tr>
 </script>
-
-
-
-
-
