@@ -14,7 +14,7 @@
     @foreach ($test->children as $test)
     <tr>
       <td style="width: 36%;">
-      @if ($test->penyemak1 == Auth::user()->name && $test->bidang_tugas != Null)
+      @if (($test->penyemak1 || $test->penyemak2 ) == Auth::user()->name && $test->bidang_tugas != Null)
             <ul>
               <li><span style="text-decoration: underline;">Bidang Tugas:</span>
                 &nbsp;<a href  data-toggle="modal" id="mediumButtonP1" data-target="#mediumModalP1" data-attr="{{ route('p1.edit', $test->id) }}" >
@@ -57,7 +57,7 @@
         @endif
       </td>
       <td style="width: 36%;">
-        @if ($test->penyemak1 == Auth::user()->name && $test->bidang_tugas1 != Null)
+        @if (($test->penyemak1 || $test->penyemak2 ) == Auth::user()->name && $test->bidang_tugas1 != Null)
           <ul>
               <li><span style="text-decoration: underline;">Bidang Tugas:</span>
                 &nbsp;<a href  data-toggle="modal" id="mediumButtonp2" data-target="#mediumModalp2"
