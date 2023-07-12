@@ -532,22 +532,23 @@ class Test3Controller extends Controller
                 ->where('penyemak1' , '!=', Null)
                 //->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
     
+                
                 $tests1 = Test::query()->with('children')->whereNull('ext2_id')
                 ->where('penyemak2' , '!=', Null)
                 ->where('penyemak3' , '==', Null)
                 //->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
-                  
+    
                 $tests2 = Test::query()->with('children')->whereNull('ext2_id')
-                ->where('penyemak3' , '!=', Null)
+                ->where('penyemak3', '!=', Null)
                 //->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
                 
             break;
@@ -558,7 +559,7 @@ class Test3Controller extends Controller
                 //->where('penyemak2' , '!=', Null)
                 ->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
     
                 
@@ -567,7 +568,7 @@ class Test3Controller extends Controller
                 //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
                 ->where('penyemak2', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
     
                 $tests2 = Test::query()->with('children')->whereNull('ext2_id')
@@ -575,7 +576,7 @@ class Test3Controller extends Controller
                 //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
                 ->where('penyemak3', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
             break;
     
@@ -587,7 +588,7 @@ class Test3Controller extends Controller
                 //->where('sektor_id', $user->sektor)
                 //->where('unit_id', $user->unit )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
                 
                 $tests1 = Test::query()->with('children')->whereNull('ext2_id')
@@ -595,7 +596,7 @@ class Test3Controller extends Controller
                 //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
                 ->where('penyemak2', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
     
                 $tests2 = Test::query()->with('children')->whereNull('ext2_id')
@@ -604,7 +605,7 @@ class Test3Controller extends Controller
                 //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
                 ->where('penyemak3', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
             break;
             
@@ -614,7 +615,7 @@ class Test3Controller extends Controller
                 //->whereNull('penyemak2')
                 ->where( 'penyemak1', $user->name )
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
                 
                 $tests1 = Test::query()->with('children')->whereNull('ext2_id')
@@ -622,7 +623,7 @@ class Test3Controller extends Controller
                 //->where('penyemak1', '==', $user->name, '||', 'penyemak2', '==', $user->name)
                 ->where('penyemak2', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
     
                 $tests2 = Test::query()->with('children')->whereNull('ext2_id')
@@ -630,7 +631,7 @@ class Test3Controller extends Controller
                 //->whereNull('penyemak2')
                 ->where('penyemak3', $user->name)
                 ->where('ic', 'LIKE', "%{$search}%")
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
             break;
     
