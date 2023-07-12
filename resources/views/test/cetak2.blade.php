@@ -23,7 +23,7 @@
       <li><span style="text-decoration: underline;">Pencapaian Penilaian Pertama:</span>
         &nbsp;{{$test->pencapaian_1}}
       </li>
-      <li><span style="text-decoration: underline;">Semakan Penilaian Pertama:</span>
+      <li><span style="text-decoration: underline;">Penilaian Pertama:</span>
         &nbsp;{{$test->penilaian_1}}
       </li>
       </ul>
@@ -43,7 +43,7 @@
       <li><span style="text-decoration: underline;">Pencapaian Penilaian Akhir:</span>
         &nbsp;{{$test->pencapaian_2}}
       </li>
-      <li><span style="text-decoration: underline;">Semakan Penilaian Akhir:</span>
+      <li><span style="text-decoration: underline;">Penilaian Akhir:</span>
         &nbsp;{{$test->penilaian_2}}
       </li>
       <li><span style="text-decoration: underline;">Status Sasaran:</span>
