@@ -31,8 +31,12 @@
                 <td style="width: 49.262%; height: 18px; text-align: center; background-color: papayawhip;" colspan="2"><b>Markah Penilaian Akhir</b></td>
                 <td style="width: 51.2914%; height: 18px; text-align: center; background-color: papayawhip;" colspan="2"><b>Pengesahan</b></td>
             </tr>
-            <tr style="height: 18px;">
+            <<tr style="height: 18px;">
+                @if ($data->status_sasaran == "Gugur")
+                <td style="width: 49.262%; height: 18px;" colspan="2"><input class="form-control" name="penilaian_2" type="text" style="text-align:center;" value="" readonly /></td>
+                @else
                 <td style="width: 49.262%; height: 18px;" colspan="2"><input class="form-control" name="penilaian_2" type="text" style="text-align:center;" value="{{$data['penilaian_2']}}" /></td>
+                @endif
                 <td style="width: 51.2914%; height: 18px; text-align: center;" colspan="2">&nbsp;
                 <input type="checkbox" id="myCheck" name="pp2_semak" required> 
                 <button type="button" class="check" value="{{$data['name']}}"></button>
