@@ -24,170 +24,225 @@
 <button type="button" class="btn btn-success float-right mb-3" data-toggle="modal" data-target=".bd-example-modal-sm">Carian Pegawai</button>
 
 <a class="btn btn-primary float-right mb-3" href="">filter date</a> -->
+
+<button type="button" class="btn btn-success float-right mb-3" data-toggle="modal" data-target=".bd-example-modal-sm">Carian Pegawai</button>
+@if (Auth::user()->hasRole('admin'))
+<!--<a class="btn btn-primary float-right mb-3 fa fa-file" href="{{ route('laporan.pegawai') }}"></a>&nbsp;-->
+<a class="btn float-right mb-3" style="background-color:CornflowerBlue;" href="{{route('addsearch.test3')}}"><span style="color: #ffffff;">Carian Tarikh</span></a> 
+@endif
+
 @forelse ( $tests1 as $test)
 
-<table  class="table table-bordered table-striped table-dark table-sm">
+<table  class="table table-bordered table-striped table-sm" style="background-color: DarkSlateGrey; color: white;" >
   <thead class="thead-dark">
-  <tr>
-        <th scope="col">Nama</th>
-        <th scope="col">Kad Pengenalan</th>
-        <th scope="col">Tempat Bertugas</th>
-        <th scope="col">Jawatan</th>
-        <th scope="col">Tahun</th>
-        <th scope="col">Perincian</th> 
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
     <tr>
-
-    <td>{{$test->pyd}}</td>
-    <td>{{$test->ic}}</td>
-    <td>{{$test->unit_id}} {{$test->sektor_id}}</td>
-    <td>{{$test->jawatan}} {{$test->gred}}</td>
-    <td>{{$test->tahun}} </td>
-    <td>{{$test->created_at}}  </td>
-    <td>
-      <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true">Papar</a>
-    </td>
-
+      <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
+      <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+          @if ($test->avatar_id != NULL)
+          <img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @else
+          <img src="{{ asset('/storage/ebk/avatar/unknown.png') }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @endif
+        </div>
+      </td>
+      <td style="width: 10%;">Nama:</td>
+      <td style="width: 70%;">{{$test->pyd}}</td>
+      </tr>
+      <tr>
+      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="3">{{ ++$i }}</td>
+      <td style="width: 20%;">Kad Pengenalan:</td>
+      <td style="width: 70%;">
+        @if (Auth::user()->hasRole('admin'))
+        {{$test->ic}}
+        @else
+        <input type="text" id="copy_{{ $test->id }}" value="{{$test->ic}}" style="color: black; height: 15px; width: 160px;" readonly>
+          <button value="copy" onclick="copyToClipboard('copy_{{ $test->id }}')" ><i class="fa fa-copy" style="font-size:14px; color:white" ></i></button>
+          &nbsp; &nbsp; &nbsp;<button onclick="redirectToSearch('{{ $test->ic }}')" class="btn btn-sm fa fa-info-circle" style="background-color: LightGoldenRodYellow" > Semakan </button>
+        @endif
+        &nbsp;
+        <!-- combine button & search -->
+        <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true"> Papar </a>
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 5%;  text-align: center; vertical-align: middle;" rowspan="2"><b>{{$test->tahun}}</b></td>
+      <td style="width: 20%;  text-align: left;">Tempat Bertugas:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->unit_id}} {{$test->sektor_id}}</td>
+      </tr> 
+      <tr>
+      <td style="width: 20%;  text-align: left;">Jawatan:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->jawatan}} {{$test->gred}}</td>
+      </tr>
+      
+</thead>
+<tbody>
+  <tr>
 
   @if (count($test['children']) > 0  )
         
-  @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-  <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
-      <tbody>
-      <tr style="height: 18px;">
-        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
-      </tr>
-      </tbody>
-    </table>    
+  @include( 'test1.listtest21', ['ext2_id' => $test->children]) 
+      
   @endif
 
-@empty  
+  
 </tr>
 
+@empty
         <tr>
-            <td></td>
+            <td><hr style="width:100%;text-align:left;margin-left:0"></td>
         </tr>    
+
         
 @endforelse
-  </tbody>
+</tbody>
 
 
-</table>
-
+</table> 
 
 @forelse ( $tests as $test)
 
-<table  class="table table-bordered table-striped table-dark table-sm">
+<table  class="table table-bordered table-striped table-sm" style="background-color: DarkSlateGrey; color: white;" >
   <thead class="thead-dark">
-  <tr>
-        <th scope="col">Nama</th>
-        <th scope="col">Kad Pengenalan</th>
-        <th scope="col">Tempat Bertugas</th>
-        <th scope="col">Jawatan</th>
-        <th scope="col">Tahun</th>
-        <th scope="col">Perincian</th> 
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
     <tr>
-
-    <td>{{$test->pyd}}</td>
-    <td>{{$test->ic}}</td>
-    <td>{{$test->unit_id}} {{$test->sektor_id}}</td>
-    <td>{{$test->jawatan}} {{$test->gred}}</td>
-    <td>{{$test->tahun}} </td>
-    <td>{{$test->created_at}}  </td>
-    <td>
-      <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true">Papar</a>
-    </td>
-
+      <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
+      <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+          @if ($test->avatar_id != NULL)
+          <img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @else
+          <img src="{{ asset('/storage/ebk/avatar/unknown.png') }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @endif
+        </div>
+      </td>
+      <td style="width: 10%;">Nama:</td>
+      <td style="width: 70%;">{{$test->pyd}}</td>
+      </tr>
+      <tr>
+      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="3">{{ ++$i }}</td>
+      <td style="width: 20%;">Kad Pengenalan:</td>
+      <td style="width: 70%;">
+        @if (Auth::user()->hasRole('admin'))
+        {{$test->ic}}
+        @else
+        <input type="text" id="copy_{{ $test->id }}" value="{{$test->ic}}" style="color: black; height: 15px; width: 160px;" readonly>
+          <button value="copy" onclick="copyToClipboard('copy_{{ $test->id }}')" ><i class="fa fa-copy" style="font-size:14px; color:white" ></i></button>
+          &nbsp; &nbsp; &nbsp;<button onclick="redirectToSearch('{{ $test->ic }}')" class="btn btn-sm fa fa-info-circle" style="background-color: LightGoldenRodYellow" > Semakan </button>
+        @endif
+        &nbsp;
+        <!-- combine button & search -->
+        <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true"> Papar </a>
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 5%;  text-align: center; vertical-align: middle;" rowspan="2"><b>{{$test->tahun}}</b></td>
+      <td style="width: 20%;  text-align: left;">Tempat Bertugas:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->unit_id}} {{$test->sektor_id}}</td>
+      </tr> 
+      <tr>
+      <td style="width: 20%;  text-align: left;">Jawatan:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->jawatan}} {{$test->gred}}</td>
+      </tr>
+      
+</thead>
+<tbody>
+  <tr>
 
   @if (count($test['children']) > 0  )
         
-  @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-  <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
-      <tbody>
-      <tr style="height: 18px;">
-        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
-      </tr>
-      </tbody>
-    </table>    
+  @include( 'test1.listtest21', ['ext2_id' => $test->children]) 
+      
   @endif
 
-  @empty  
-  </tr>
-
-          <tr>
-              <td></td>
-          </tr>    
-          
-  @endforelse
-    </tbody>
+  
+</tr>
 
 
-  </table> 
+@empty
+        <tr>
+            <td><hr style="width:100%;text-align:left;margin-left:0"></td>
+        </tr>    
 
-  @forelse ( $tests2 as $test)
+        
+@endforelse
+</tbody>
 
-  <table  class="table table-bordered table-striped table-dark table-sm">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Nama</th>
-        <th scope="col">Kad Pengenalan</th>
-        <th scope="col">Tempat Bertugas</th>
-        <th scope="col">Jawatan</th>
-        <th scope="col">Tahun</th>
-        <th scope="col">Perincian</th> 
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
+
+</table> 
+
+
+@forelse ( $tests2 as $test)
+
+<table  class="table table-bordered table-striped table-sm" style="background-color: DarkSlateGrey; color: white;" >
+  <thead class="thead-dark">
     <tr>
-
-    <td>{{$test->pyd}}</td>
-    <td>{{$test->ic}}</td>
-    <td>{{$test->unit_id}} {{$test->sektor_id}}</td>
-    <td>{{$test->jawatan}} {{$test->gred}}</td>
-    <td>{{$test->tahun}} </td>
-    <td>{{$test->created_at}}  </td>
-    <td>
-      <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true">Papar</a>
-    </td>
-
-
-    @if (count($test['children']) > 0  )
-          
-    @include( 'test1.listtest2', ['ext2_id' => $test->children]) 
-    <table style="height: 18px; width: 100%; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
-      <tbody>
-      <tr style="height: 18px;">
-        <td style="width: 100%; text-align: left; height: 18px;">Sebanyak {{$test['children']->count()}} fungsi {{$test->pyd}} telah dijana.</td>
+      <td style="width: 5%; text-align: center; vertical-align: top;">No.</td>
+      <td style="width: 10%; text-align: center; vertical-align: top;" rowspan="2">
+        <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100%;">
+          @if ($test->avatar_id != NULL)
+          <img src="{{ asset('/storage/ebk/avatar/' . $test->avatar_id) }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @else
+          <img src="{{ asset('/storage/ebk/avatar/unknown.png') }}" style="width: 70px; height: 75px; border-radius: 50%">
+          @endif
+        </div>
+      </td>
+      <td style="width: 10%;">Nama:</td>
+      <td style="width: 70%;">{{$test->pyd}}</td>
       </tr>
-      </tbody>
-    </table>    
-    @endif
+      <tr>
+      <td style="width: 5%; text-align: center; vertical-align: top;" rowspan="3">{{ ++$i }}</td>
+      <td style="width: 20%;">Kad Pengenalan:</td>
+      <td style="width: 70%;">
+        @if (Auth::user()->hasRole('admin'))
+        {{$test->ic}}
+        @else
+        <input type="text" id="copy_{{ $test->id }}" value="{{$test->ic}}" style="color: black; height: 15px; width: 160px;" readonly>
+          <button value="copy" onclick="copyToClipboard('copy_{{ $test->id }}')" ><i class="fa fa-copy" style="font-size:14px; color:white" ></i></button>
+          &nbsp; &nbsp; &nbsp;<button onclick="redirectToSearch('{{ $test->ic }}')" class="btn btn-sm fa fa-info-circle" style="background-color: LightGoldenRodYellow" > Semakan </button>
+        @endif
+        &nbsp;
+        <!-- combine button & search -->
+        <a href="{{ route('cetak.test', $test->id) }}" class="btn btn-info btn-sm fa fa-print" role="button" aria-pressed="true"> Papar </a>
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 5%;  text-align: center; vertical-align: middle;" rowspan="2"><b>{{$test->tahun}}</b></td>
+      <td style="width: 20%;  text-align: left;">Tempat Bertugas:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->unit_id}} {{$test->sektor_id}}</td>
+      </tr> 
+      <tr>
+      <td style="width: 20%;  text-align: left;">Jawatan:</td>
+      <td style="width: 70%;  text-align: left;">{{$test->jawatan}} {{$test->gred}}</td>
+      </tr>
+      
+</thead>
+<tbody>
+  <tr>
 
-  @empty  
-  </tr>
+  @if (count($test['children']) > 0  )
+        
+  @include( 'test1.listtest21', ['ext2_id' => $test->children]) 
+      
+  @endif
 
-          <tr>
-              <td></td>
-          </tr>    
-          
-  @endforelse
-    </tbody>
+  
+</tr>
+
+@empty
+        <tr>
+            <td><hr style="width:100%;text-align:left;margin-left:0"></td>
+        </tr>    
+
+        
+@endforelse
+</tbody>
 
 
-  </table> 
-
+</table> 
 
 </div>
 
-<!-- Modal Carian JPN
+<!-- Modal Carian JPN-->
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -197,6 +252,6 @@
     </div>
   </div>
 </div>
--->
+
 
 </x-app-layout>
