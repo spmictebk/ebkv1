@@ -18,7 +18,7 @@
                 </div>
                 @if (Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('list.test3')" :active="request()->routeIs('list.test3')">
+                    <x-nav-link :href="route('list3.test3')" :active="request()->routeIs('list3.test3')">
                         {{ __('Senarai eKeberhasilan Pegawai') }}
                     </x-nav-link>
                 </div>
@@ -47,7 +47,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('list.test3')" :active="request()->routeIs('list.test3')">
+                    <x-nav-link :href="route('list3.test3')" :active="request()->routeIs('list3.test3')">
                         {{ __('Senarai eKeberhasilan Pegawai') }}
                     </x-nav-link>
                 </div>
@@ -61,16 +61,15 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('list.test3')" :active="request()->routeIs('list.test3')">
+                    <x-nav-link :href="route('list3.test3')" :active="request()->routeIs('list3.test3')">
                         {{ __('Senarai eKeberhasilan Pegawai') }}
                     </x-nav-link>
                 </div>
-
                 @endif
 
                 @if (Auth::user()->hasRole('pengarah'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('list.test3')" :active="request()->routeIs('list.test3')">
+                    <x-nav-link :href="route('list3.test3')" :active="request()->routeIs('list3.test3')">
                         {{ __('Senarai eKeberhasilan Pegawai') }}
                     </x-nav-link>
                 </div>
