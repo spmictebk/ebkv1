@@ -156,3 +156,30 @@
         </div>
     </div>
 </nav>
+
+<!-- Profil -->
+<div class="modal fade profilModal" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-light bg-dark">
+                <h5 class="modal-title" id="exampleModalLabel1">Profil Gambar</h5>
+                </div>
+                   
+                    <div class="modal-body" id="profilBody">
+                        <div>
+                            <!-- the result to be displayed apply here -->
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                           <table style="border-collapse: collapse; width: 100%;" border="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 25%; text-align: right;" colspan="2">&nbsp;<button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Tutup</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+        </div>
+    </div>
