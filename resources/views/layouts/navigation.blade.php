@@ -99,19 +99,17 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <x-dropdown-link :href="route('daftar.profile')"
-                                onclick="location.href='route('daftar.profile')'">
-                            {{ __('Kemaskini Profil') }}
-                        </x-dropdown-link>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Keluar') }}
-                            </x-dropdown-link>
-                        </form>
+                        <div class="flex">
+                            <div data-attr="{{ route('daftar.profile') }}" id="profilButton" data-toggle="modal" data-target="#profilModal" class="cursor-pointer">
+                                <button type="button" class="btn btn-outline-info btn-sm">{{ __('Kemaskini Profil') }}</button>
+                            </div>
+                            <form method="POST" action="{{ route('logout') }}" class="ml-2">
+                                @csrf
+                                <div onclick="event.preventDefault(); this.closest('form').submit();" class="cursor-pointer">
+                                    <button type="button" class="btn btn-outline-danger btn-sm">{{ __('Keluar') }}</button>
+                                </div>
+                            </form>
+                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>
