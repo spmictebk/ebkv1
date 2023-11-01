@@ -578,6 +578,32 @@
             })
         });
 
+        //modal profil pengguna
+        $(document).on('click', '#profilButton', function(event) {
+            event.preventDefault();
+            let href = $(this).attr('data-attr');
+            $.ajax({
+                url: href,
+                beforeSend: function() {
+                    $('#loader').show();
+                },
+                // return the result
+                success: function(result) {
+                    $('#profilModal').modal("show");
+                    $('#profilBody').html(result).show();
+                },
+                complete: function() {
+                    $('#loader').hide();
+                },
+                error: function(jqXHR, testStatus, error) {
+                    console.log(error);
+                    alert("Page " + href + " cannot open. Error:" + error);
+                    $('#loader').hide();
+                },
+                timeout: 8000
+            })
+        });
+
         // gabung button dan search 
         function redirectToSearch(icValue) {
             var searchUrl = "{{ route('search.test3') }}?search=" + icValue;
