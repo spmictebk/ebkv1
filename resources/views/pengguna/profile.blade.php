@@ -1,23 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-100 leading-tight">
-            {{ __('Sistem eBK') }}
-        </h2>
-    </x-slot>
-
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                
-            </a>
-        </x-slot>
-
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-15">
                     <div class="card">
-                        <div class="card-header">{{ __('Gambar Profile') }}</div>
-        
                         <div class="card-body">
                             <form method="POST" action="{{ route('daftar.profile1') }}" enctype="multipart/form-data">
                                 @csrf
@@ -29,12 +13,12 @@
                                 @endif
         
                                 <div class="row mb-3">
-                                    <label for="avatar" class="col-md-6 col-form-label text-md-end">{{ __('MuatNaik Gambar') }}</label>
+                                    <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('MuatNaik Gambar') }}</label>
         
                                     <div class="col-md-6">
                                         <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar">
         
-                                        <img src="{{ asset('/storage/ebk/avatar/' . Auth::user()->avatar) }}" style="width: 70px; height: 60px; border-radius: 10%">
+                                        <img src="{{ asset('/storage/profil/avatar/' . Auth::user()->avatar) }}" style="width: 70px; height: 60px; border-radius: 10%">
         
                                         @error('avatar')
                                             <span class="invalid-feedback" role="alert">
@@ -46,7 +30,7 @@
         
                                 <div class="row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-outline-success btn-sm">
                                             {{ __('Upload Profile') }}
                                         </button>
                                     </div>
@@ -57,6 +41,3 @@
                 </div>
             </div>
         </div>
-    </x-auth-card>
-
-    </x-app-layout>
